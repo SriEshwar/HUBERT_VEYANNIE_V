@@ -27,9 +27,17 @@ router.get("/login", function (req, res) {
    res.render("home/login")
 });
 
-router.get("/logout", function(req, res){
-   req.logout();
-   res.redirect("/home");
+router.get("/logout", function(req, res) {
+   req.logout(function(err) {
+       if (err) {
+           console.error('Error during logout:', err);
+           // Handle the error (e.g., log it or send an error response)
+           res.status(500).json({ error: 'Logout failed' });
+       } else {
+           // Logout successful, redirect to home page
+           res.redirect('/home');
+       }
+   });
 });
 
 router.post("/login", passport.authenticate("login", {
