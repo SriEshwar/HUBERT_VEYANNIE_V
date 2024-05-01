@@ -42,6 +42,10 @@ const setMessage = (type, element, message = "") => {
       break;
   }
 };
+// check name is valid
+const isValidName = (val) => {
+  return val.match(/^[A-Z][a-z]*$/)
+}
 
 // check if the value is numric
 const isNumeric = (num) => {
@@ -74,14 +78,18 @@ const validateForm = () => {
   if (firstNameValue === "") {
     setMessage(messageType.ERROR, firstName, "First Name is required");
     isFormValid = false;
-  } else {
-    setMessage(messageType.SUCCESS, firstName);
+  } else if(!isValidName(firstNameValue)){
+    setMessage(messageType.ERROR, firstName, "Invalid Firstname");
+  } else{
+    setMessage(messageType.SUCCESS, firstName)
   }
 
   // check last name field for error and success
   if (lastNameValue === "") {
     setMessage(messageType.ERROR, lastName, "Last Name is required");
     isFormValid = false;
+  }else if(!isValidName(lastName)){
+    setMessage(messageType.ERROR, lastName, "Invalid Lastname")
   } else {
     setMessage(messageType.SUCCESS, lastName);
   }
@@ -150,3 +158,18 @@ const validateForm = () => {
     alert("Form Submitted");
   }
 };
+
+var password = document.getElementById('password')
+var togglePAssword = document.getElementById('togglePassword')
+
+togglePAssword.addEventListener('click', function(){
+  if (password.type === 'password'){
+    password.type = 'text'
+    togglePAssword.classList.remove('fa-eye-slash')
+    togglePAssword.classList.add('fa-eye')
+  }else{
+    password.type = 'password'
+    togglePAssword.classList.remove('fa-eye')
+    togglePAssword.classList.add('fa-eye-slash')
+  }
+})

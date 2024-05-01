@@ -32,20 +32,6 @@ body {
   max-width: 550px;
 }
 
-.logo {
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.logo img {
-  max-width: 40px;
-}
-
 .content h1 {
   margin-bottom: 2rem;
   font-size: 2.5rem;
@@ -60,8 +46,21 @@ body {
 
 .input__row {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  position: relative;
+}
+
+.input__row .input__group i{
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.pass .error__field{
+  margin-left: 25px;
 }
 
 .input__group {
@@ -93,6 +92,7 @@ body {
   pointer-events: none;
   transition: 0.3s;
 }
+
 
 .input__group input:focus ~ label,
 .input__group input:not(:placeholder-shown) ~ label {
@@ -128,11 +128,4 @@ body {
   cursor: pointer;
 }
 
-.image {
-  height: 100%;
-  margin-left: 8rem;
-  background-image: url("assets/background.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
+
