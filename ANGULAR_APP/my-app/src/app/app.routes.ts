@@ -9,10 +9,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
 export const routes: Routes = [
     {'path':'','title':'Home', component:HomeComponent},
-    {'path':'login','title':'Login',component:LoginComponent},
     {'path':'products','title':'Products',component:ProductsComponent},
     {'path':'services','title':'Services',component:ServicesComponent},
     {'path':'blog','title':'Blog',component:BlogComponent},
     {'path':'about-us','title':'About Us',component:AboutUsComponent},
-    {'path':'contact-us','title':'Contact Us',component:ContactUSComponent}
+    {'path':'contact-us','title':'Contact Us',component:ContactUSComponent},
+    {'path':'login','title':'Login',component:LoginComponent}
 ];
