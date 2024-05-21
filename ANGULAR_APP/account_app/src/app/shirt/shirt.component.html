@@ -1,0 +1,8 @@
+<p>shirt works!</p>
+<div>
+    <label for="shirtSizeInput">Enter Shirt size: </label>
+    <input type="number" id="shirtSizeInput" [(ngModel)]="size">
+</div>
+<div>
+    <p>your shirt size is {{size | shirt}}</p>
+</div>
