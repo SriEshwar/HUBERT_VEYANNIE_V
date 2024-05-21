@@ -3,22 +3,24 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
+
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule,RouterOutlet, CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css'
 })
-export class LoginComponent {
-  hide = true;
-  password = '';
+export class RegisterComponent {
+  hide=true;
+  password='';
 
   form={
-    username: '',
-    password: ''
+    fullname: '',
+    email: '',
+    password: '',
+    contact: ''
   }
-
   onSubmit(): void{
     console.log(JSON.stringify(this.form))
   }
