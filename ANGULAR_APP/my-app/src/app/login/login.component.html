@@ -1,30 +1,21 @@
 
 <div class="container">
     <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
-      <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required [(ngModel)]="form.username" #username="ngModel" [ngClass]="{'is-invalid': f.submitted && username.errors}"/>
-      @if(f.submitted && username.errors){
-        <div class="invalid-feedback">
-          @if(username.errors['required']){
-            <div class="err">Username Required</div>
-          }
-        </div>
-      }
+      <label for="email"><b>Email</b></label>
+      <input type="email" name="email" #email="ngModel" [(ngModel)]="form.email" placeholder="Enter Email"  pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{3,}" required/>
+      <div class="err" *ngIf="email.invalid && (email.touched || email.dirty) || isFormSubmitted">
+        <span *ngIf="email.errors?.['required']">Email Required</span>
+        <span *ngIf="email.errors?.['pattern']">Invalid Email</span>
+      </div>
     
       <label for="password"><b>Password</b></label>
-      <input [type]="hide ? 'password' : 'text'" id="password" [(ngModel)]="form.password" name="password" placeholder="Enter Password"
-        #password="ngModel" [ngClass]="{'is-invalid': f.submitted && password.errors}" required
-      />
-      @if (f.submitted && password.errors){
-        <div class="invalid-feedback">
-            @if(password.errors['required']){
-                <div class="err">Password is required</div>
-            }
-        </div>
-    }
-
+      <input [type]="hide ? 'password' : 'text'" id="password" [(ngModel)]="form.password" name="password" placeholder="Enter Password" #password="ngModel" minlength="8" required/>
+      <div class="err" *ngIf="password.invalid && (password.touched || password.dirty) || isFormSubmitted">
+        <span *ngIf="password.errors?.['required']">Password is Required</span>
+        <span *ngIf="password.errors?.['minlength']">Password must be minimum 8 characters</span>
+      </div>
       <button type="button" (click)="hide = !hide">{{hide ? 'Show' : 'Hide'}} Password</button>
-      <button id="submit" type="submit">Login</button>
+      <button id="submit" type="submit" (click)="onSubmit()">Login</button>
 
       <p>Don't have an account?</p><a href="register">Register</a>
     </form>

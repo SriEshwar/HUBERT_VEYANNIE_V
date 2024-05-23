@@ -9,17 +9,23 @@ body {font-family: Arial, Helvetica, sans-serif;}
     border: 1px solid black;
     border-radius: 14px;
 }
-input[type=text], input[type=password] {
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+input[type='email'], input[type="password"], input[type="text"] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #f1f1f1;
     border-radius: 10px;
     color: black;
 }
-#submit{
+button[type="submit"]{
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -27,7 +33,6 @@ input[type=text], input[type=password] {
     border: none;
     cursor: pointer;
     width: 100%;
-    opacity: 0.9;
     border-radius: 10px;
 }
 

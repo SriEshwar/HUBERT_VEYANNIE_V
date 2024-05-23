@@ -7,6 +7,7 @@ import { ServicesComponent } from './services/services.component';
 import { BlogComponent } from './blog/blog.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 export const routes: Routes = [
     {'path':'','title':'Home', component:HomeComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {'path':'about-us','title':'About Us',component:AboutUsComponent},
     {'path':'contact-us','title':'Contact Us',component:ContactUSComponent},
     {'path':'login','title':'Login',component:LoginComponent},
-    {'path':'register','title': 'Register',component:RegisterComponent}
+    {'path':'register','title': 'Register',component:RegisterComponent},
+    {'path':'welcome', 'title': 'Welcome', component:WelcomeComponent}
 ];

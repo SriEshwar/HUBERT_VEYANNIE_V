@@ -1,7 +1,6 @@
 
 <div class="main">
-    <h2>Registration Form</h2>
-    <form name="form" [formGroup]="form">
+    <form name="form" (ngSubmit)="onSubmit()" [formGroup]="form">
         <label for="fullname">Fullname:</label>
         <input placeholder="Enter your Fullname" type="text" id="fullname" name="fullname" formControlName="fullname" />
         <div class="err" *ngIf="form.controls['fullname'].invalid  && (form.controls['fullname'].touched || form.controls['fullname'].dirty || isFormSubmitted)">

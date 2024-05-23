@@ -6,9 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
 
+  
+  constructor(private http: HttpClient) { }
+  
   registerUser(data: any) {
-    return this.http.post('http://localhost:3000/register', data);
+    return this.http.post('http://localhost:3000/users', data);
+  }
+
+  private fullName: string| null = null
+  setFullname(fullName: string): void{
+    this.fullName = fullName;
+  }
+  getFullname(): string | null{
+    return this.fullName;
   }
 }

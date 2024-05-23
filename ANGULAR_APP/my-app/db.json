@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "fullname": "Hubert Veyannie",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "ihdbvhibewb",
+      "contact": "8056885772",
+      "id": 1
+    },
+    {
+      "fullname": "Hubert Veyannie",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "ihdbvhibewb",
+      "contact": "8056885772",
+      "id": 2
+    },
+    {
+      "fullname": "Sanjay",
+      "email": "xyz@gmail.com",
+      "password": "ihbvlk ewrb ",
+      "contact": "6385680085",
+      "id": 3
+    },
+    {
+      "fullname": "Sanjay",
+      "email": "xyz@gmail.com",
+      "password": "ihbvlk ewrb ",
+      "contact": "6385680085",
+      "id": 4
+    },
+    {
+      "fullname": "Hubert Veyannie",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "lifbvibfba",
+      "contact": "8056885772",
+      "id": 5
+    },
+    {
+      "fullname": "Hubert Veyannie",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "lifbvibfba",
+      "contact": "8056885772",
+      "id": 6
+    },
+    {
+      "fullname": "Hubert Veyannie",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "ldjfbnjfbilj",
+      "contact": "8056885772",
+      "id": 7
+    },
+    {
+      "fullname": "Hubert Veyannie",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "ldjfbnjfbilj",
+      "contact": "8056885772",
+      "id": 8
+    },
+    {
+      "fullname": "Dharshan",
+      "email": "ABCd@gmail.com",
+      "password": "1234rdfh",
+      "contact": "7598680084",
+      "id": 9
+    },
+    {
+      "fullname": "Dharshan",
+      "email": "ABCd@gmail.com",
+      "password": "1234rdfh",
+      "contact": "7598680084",
+      "id": 10
+    }
+  ]
+}
