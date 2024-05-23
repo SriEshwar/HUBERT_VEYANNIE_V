@@ -1,76 +1,38 @@
 
 <div class="main">
     <h2>Registration Form</h2>
-    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+    <form name="form" [formGroup]="form">
         <label for="fullname">Fullname:</label>
-        <input placeholder="Enter your Fullname" type="text" id="fullname" name="fullname" [(ngModel)]="form.fullname" required #fullname="ngModel" [ngClass]="{'is-invalid': f.submitted && fullname.errors}"/>
-        @if (f.submitted && fullname.errors){
-            <div class="invalid-feedback">
-                @if(fullname.errors['required']){
-                    <div class="err">Fullname name Required</div>
-                }
-            </div>
-        }
+        <input placeholder="Enter your Fullname" type="text" id="fullname" name="fullname" formControlName="fullname" />
+        <div class="err" *ngIf="form.controls['fullname'].invalid  && (form.controls['fullname'].touched || form.controls['fullname'].dirty || isFormSubmitted)">
+            <span *ngIf="form.controls['fullname'].errors?.['required']">This is required</span>
+        </div>
 
         <label for="email">Email:</label>
-        <input placeholder="Enter Email" type="email" id="email" name="email" required email [(ngModel)]="form.email" #email="ngModel" [ngClass]="{'is-invalid': f.submitted && email.errors}"/>
-        @if(f.submitted && email.errors){
-            <div class="invalid-feedback">
-                @if(email.errors['required']){
-                    <div class="err">Email is required</div>
-                }
-                @if(email.errors['email']){
-                    <div class="err">Email is invalid</div>
-                }
-            </div>
-        }
+        <input placeholder="Enter Email" type="email" id="email" name="email" formControlName="email"/>
+        <div class="err" *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty || isFormSubmitted)">
+            <span *ngIf="form.controls['email'].errors?.['required']">Email is Required</span>
+            <span *ngIf="form.controls['email'].errors?.['email']">Email is invalid</span>
+        </div>
 
         <label for="password" >Password:</label>
-        <input placeholder="Enter Password" [type]="hide ? 'password' : 'text'" id="password" name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="6"
-            maxlength="40"
-            #password="ngModel"
-            [ngClass]="{'is-invalid': f.submitted && password.errors}"/>
-        @if (f.submitted && password.errors){
-            <div class="invalid-feedback">
-                @if(password.errors['required']){
-                    <div class="err">Password is required</div>
-                }
-                @if(password.errors['minlength']){
-                    <div class="err">Password must be atleast 6 characters</div>
-                }
-                @if(password.errors['maxlength']){
-                    <div class="err">Password must not exceed 40 characters</div>
-                }
-            </div>
-        }
+        <input placeholder="Enter Password" [type]="hide ? 'password' : 'text'" id="password" name="password" formControlName="password"/>
+        <div class="err" *ngIf="form.controls['password'].invalid && (form.controls['password'].touched || form.controls['password'].dirty || isFormSubmitted)">
+            <span *ngIf="form.controls['password'].errors?.['required']">Password is required</span>
+            <span *ngIf="form.controls['password'].errors?.['minlength']">Password must be minimum 8 characters</span>
+        </div>
         <button type="button" (click)="hide = !hide">{{hide ? 'Show' : 'Hide'}} Password</button>
 
 
         <label for="mobile">Contact:</label>
-        <input
-            placeholder="Enter Phone Number"
-            type="tel"
-            id="mobile"
-            name="mobile"
-            maxlength="10"
-            pattern="[0-9]{10}"
-            required
-            [(ngModel)]="form.contact"
-            #contact="ngModel"
-            [ngClass]="{'is-invalid': f.submitted && contact.errors}"/>
-        @if(f.submitted && contact.errors){
-            <div class="invalid-feedback">
-                @if(contact.errors['mobile']){
-                    <div class="err">Invalid phone number</div>
-                }
-            </div>
-        }
+        <input placeholder="Enter Phone Number" type="tel" id="mobile" name="mobile" formControlName="contact"/>
+        <div class="err" *ngIf="form.controls['contact'].invalid && (form.controls['contact'].touched || form.controls['contact'].dirty || isFormSubmitted)">
+            <span *ngIf="form.controls['contact'].errors?.['required']">Contact is required</span>
+            <span *ngIf="form.controls['contact'].errors?.['maxlength']">Invalid Contact</span>
+            <span *ngIf="form.controls['contact'].errors?.['minlength']">Invalid Contact</span>
+        </div>
 
 
-
-        <button type="submit">Submit</button>
+        <button type="submit" (click)="onSubmit()">Submit</button>
     </form>
 </div>
