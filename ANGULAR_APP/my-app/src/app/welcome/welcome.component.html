@@ -1,4 +1,26 @@
-<div class="main-container" *ngIf = 'fullName'>
+<div class="main-container">
     <h1>Welcome {{fullName}}</h1>
-    <p>welcom works</p>
+    <p>Lets calculate you BMI</p>
+    <form [formGroup]="bmiForm" (ngSubmit)="calculateBMI()">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" formControlName="height">
+        <div class="err" *ngIf="bmiForm.controls['height'].invalid && (bmiForm.controls['height'].touched || bmiForm.controls['height'].dirty)">
+            <span *ngIf="bmiForm.controls['height'].errors?.['required']">Height is required</span>
+            <span *ngIf="bmiForm.controls['height'].errors?.['min']">Height must be a positive number</span>
+        </div>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" formControlName="weight">
+        <div class="err" *ngIf="bmiForm.controls['weight'].invalid && (bmiForm.controls['weight'].touched || bmiForm.controls['weight'].dirty)">
+            <span *ngIf="bmiForm.controls['weight'].errors?.['required']">Weight is required</span>
+            <span *ngIf="bmiForm.controls['weight'].errors?.['min']">Weight must be a positive number</span>
+        </div>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div *ngIf="bmi !== null">
+        <h3>Your BMI is: {{ bmi | number:'1.2-2' }}</h3>
+        <p>{{ bmiMessage }}</p>
+    </div>
 </div>

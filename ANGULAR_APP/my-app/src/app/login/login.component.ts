@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { response } from 'express';
 
 
 
@@ -17,7 +19,6 @@ export class LoginComponent {
   hide = true;
   password = '';
   
-
   isFormSubmitted: boolean = false;
 
   form={
@@ -25,28 +26,30 @@ export class LoginComponent {
     password: ''
   }
 
-  constructor(private http: HttpClient, private router: Router){
+  constructor(private authService: AuthService, private router: Router){
     
   }
 
   onSubmit(): void{
     this.isFormSubmitted = true;
 
-  
-    this.http.get<any>("http://localhost:3000/users").subscribe(response => {
-      const user = response.find((a:any)=>{
-        return a.email === this.form.email && a.password === this.form.password
-      });
-      if(user){
-        alert('Login success!!')
-        this.form = { email: '', password: '' };
-        this.router.navigate(['welcome'])
-      }else{
-        alert("User not found")
-      }
-    },error => {
-      alert("Something went wrong!!")
-    })
+    if(this.form.email && this.form.password){
+      this.authService.validateUSer(this.form.email, this.form.password).subscribe(response => {
+        const user = response.find((a: any) => {
+          return a.email === this.form.email && a.password === this.form.password
+        })
+
+        if (user){
+          alert("Login Success")
+          this.form = { email: '', password: ''};
+          this.router.navigate(['welcome'])
+        }else{
+          alert("User not found")
+        }
+      }, error => {
+        alert("Something went wrong!!")
+      })
+    }
     
   }
 }

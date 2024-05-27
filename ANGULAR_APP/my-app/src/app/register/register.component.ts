@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { response } from 'express';
 
 
 @Component({
@@ -33,25 +34,36 @@ export class RegisterComponent {
   }
   
   onSubmit(): void {
+    this.isFormSubmitted = true;
 
-    this.isFormSubmitted = true
+    if (this.form.invalid) {
+      return;
+    }
 
     const userData = this.form.value;
-    this.http.post('http://localhost:3000/users', userData).subscribe(
-      (response) => {
-        alert("Registered sucessfully")
-        console.log('User registered successfully:', response);
-        this.authService.setFullname(this.fullName)
-        this.router.navigate(['login']).then(() => {
-          console.log('Navigation successful!');
-        });
-        this.form.reset()
-      },
-      (error) => {
-        console.error('Error registering user:', error);
-        alert("Error while registering")
+    this.authService.checkUserExiste(userData.email).subscribe(userExists => {
+      if(userExists){
+        alert("User already exists")
+      }else{
+        this.authService.registerUser(userData).subscribe(
+          (response)=>{
+            alert("registered Sucessfully");
+            console.log("USer registered sucessfully: ",response);
+            this.authService.setFullname(userData.fullname);
+            this.router.navigate(['login']).then(()=>{
+              console.log("Navigation sucessful")
+            });
+            this.form.reset()
+          }, (error) =>{
+            console.error("Error registering user: ", error);
+            alert("Error while registering");
+          }
+        )
       }
-    );
+    }, error => {
+      console.error("error checking user existence: ", error);
+      alert("error while checking user existence")
+    })
   }
   
  
