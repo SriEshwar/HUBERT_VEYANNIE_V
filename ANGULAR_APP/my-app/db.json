@@ -13,6 +13,13 @@
       "password": "334445566",
       "contact": "7598680084",
       "id": 2
+    },
+    {
+      "fullname": "Santosh",
+      "email": "sandy@gmail.com",
+      "password": "00998877",
+      "contact": "6385680085",
+      "id": 3
     }
   ]
 }
