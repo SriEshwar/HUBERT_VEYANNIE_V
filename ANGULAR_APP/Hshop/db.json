@@ -1,0 +1,46 @@
+{
+  "users":[
+
+  ],
+  "products":[
+    {
+      "productId": 1,
+      "productSku": "IPHONE",
+      "productName": "Iphone 8 264 GB",
+      "productPrice": 125000,
+      "productShortName": "IP8",
+      "productDescription": "This is a ihone product",
+      "createdDate": "2024-05-23T22:47:53.73",
+      "deliveryTimeSpan": "1 day",
+      "categoryId": 1,
+      "productImageUrl": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-8-4.jpg",
+      "categoryName": "Mobile"
+    },
+    {
+      "productId": 2,
+      "productSku": "SAMSUNG",
+      "productName": "Samsung Galaxy S23 Ultra",
+      "productPrice": 140000,
+      "productShortName": "S24",
+      "productDescription": "This is Samsung Product",
+      "createdDate": "2024-05-24T14:22:57.913",
+      "deliveryTimeSpan": "1 day",
+      "categoryId": 1,
+      "productImageUrl": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-ultra-5g-1.jpg",
+      "categoryName": "Mobile"
+    },
+    {
+      "productId": 3,
+      "productSku": "ASUS",
+      "productName": "Asus ROG 8 Pro",
+      "productPrice": 100000,
+      "productShortName": "R8",
+      "productDescription": "This is Asus product",
+      "createdDate": "2024-05-24T15:05:01.34",
+      "deliveryTimeSpan": "2 days",
+      "categoryId": 1,
+      "productImageUrl": "https://hothardware.com/ContentImages/Article/2805/content/small_asus_rog_phone_stock.jpg",
+      "categoryName": "Mobile"
+    }
+  ]
+}
