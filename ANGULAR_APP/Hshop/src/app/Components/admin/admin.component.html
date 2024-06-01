@@ -1,1 +1,87 @@
-<p>admin works!</p>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="container mt-5">
+  <div class="form-group">
+      <label for="id">ID</label>
+      <input id="id" formControlName="id" type="number" class="form-control" [ngClass]="{'is-invalid': productForm.get('id')?.invalid && productForm.get('id')?.touched}">
+      <div *ngIf="productForm.get('id')?.invalid && productForm.get('id')?.touched" class="invalid-feedback">
+          ID is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productId">Product ID</label>
+      <input id="productId" formControlName="productId" type="number" class="form-control" [ngClass]="{'is-invalid': productForm.get('productId')?.invalid && productForm.get('productId')?.touched}">
+      <div *ngIf="productForm.get('productId')?.invalid && productForm.get('productId')?.touched" class="invalid-feedback">
+          Product ID is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productSku">Product SKU</label>
+      <input id="productSku" formControlName="productSku" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('productSku')?.invalid && productForm.get('productSku')?.touched}">
+      <div *ngIf="productForm.get('productSku')?.invalid && productForm.get('productSku')?.touched" class="invalid-feedback">
+          Product SKU is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input id="productName" formControlName="productName" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('productName')?.invalid && productForm.get('productName')?.touched}">
+      <div *ngIf="productForm.get('productName')?.invalid && productForm.get('productName')?.touched" class="invalid-feedback">
+          Product Name is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productPrice">Product Price</label>
+      <input id="productPrice" formControlName="productPrice" type="number" class="form-control" [ngClass]="{'is-invalid': productForm.get('productPrice')?.invalid && productForm.get('productPrice')?.touched}">
+      <div *ngIf="productForm.get('productPrice')?.invalid && productForm.get('productPrice')?.touched" class="invalid-feedback">
+          Product Price is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productShortName">Product Short Name</label>
+      <input id="productShortName" formControlName="productShortName" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('productShortName')?.invalid && productForm.get('productShortName')?.touched}">
+      <div *ngIf="productForm.get('productShortName')?.invalid && productForm.get('productShortName')?.touched" class="invalid-feedback">
+          Product Short Name is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productDescription">Product Description</label>
+      <input id="productDescription" formControlName="productDescription" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('productDescription')?.invalid && productForm.get('productDescription')?.touched}">
+      <div *ngIf="productForm.get('productDescription')?.invalid && productForm.get('productDescription')?.touched" class="invalid-feedback">
+          Product Description is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="createdDate">Created Date</label>
+      <input id="createdDate" formControlName="createdDate" type="date" class="form-control" [ngClass]="{'is-invalid': productForm.get('createdDate')?.invalid && productForm.get('createdDate')?.touched}">
+      <div *ngIf="productForm.get('createdDate')?.invalid && productForm.get('createdDate')?.touched" class="invalid-feedback">
+          Created Date is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="deliveryTimeSpan">Delivery Time Span</label>
+      <input id="deliveryTimeSpan" formControlName="deliveryTimeSpan" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('deliveryTimeSpan')?.invalid && productForm.get('deliveryTimeSpan')?.touched}">
+      <div *ngIf="productForm.get('deliveryTimeSpan')?.invalid && productForm.get('deliveryTimeSpan')?.touched" class="invalid-feedback">
+          Delivery Time Span is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="productImageUrl">Product Image URL</label>
+      <input id="productImageUrl" formControlName="productImageUrl" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('productImageUrl')?.invalid && productForm.get('productImageUrl')?.touched}">
+      <div *ngIf="productForm.get('productImageUrl')?.invalid && productForm.get('productImageUrl')?.touched" class="invalid-feedback">
+          Product Image URL is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="categoryName">Category Name</label>
+      <input id="categoryName" formControlName="categoryName" type="text" class="form-control" [ngClass]="{'is-invalid': productForm.get('categoryName')?.invalid && productForm.get('categoryName')?.touched}">
+      <div *ngIf="productForm.get('categoryName')?.invalid && productForm.get('categoryName')?.touched" class="invalid-feedback">
+          Category Name is required.
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="rating">Rating</label>
+      <input id="rating" formControlName="rating" type="number" class="form-control" [ngClass]="{'is-invalid': productForm.get('rating')?.invalid && productForm.get('rating')?.touched}">
+      <div *ngIf="productForm.get('rating')?.invalid && productForm.get('rating')?.touched" class="invalid-feedback">
+          Rating is required.
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+</form>

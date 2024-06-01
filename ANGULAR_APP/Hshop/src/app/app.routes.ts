@@ -4,6 +4,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { ProductComponent } from './Components/product/product.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { LoginComponent } from './Components/login/login.component';
 
 export const routes: Routes = [
     {path:"", component:HomeComponent},
@@ -11,4 +12,5 @@ export const routes: Routes = [
     {path:"product", component:ProductComponent},
     {path:"navbar", component:NavbarComponent},
     {path:"admin", component:AdminComponent},
+    {path:"login", component:LoginComponent}
 ];

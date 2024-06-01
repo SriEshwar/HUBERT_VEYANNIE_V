@@ -1,22 +1,22 @@
 {
-  "users":[
-
-  ],
-  "products":[
+  "users": [],
+  "products": [
     {
+      "id": 1,
       "productId": 1,
       "productSku": "IPHONE",
       "productName": "Iphone 8 264 GB",
       "productPrice": 125000,
       "productShortName": "IP8",
-      "productDescription": "This is a ihone product",
+      "productDescription": "This is a iphone product",
       "createdDate": "2024-05-23T22:47:53.73",
       "deliveryTimeSpan": "1 day",
-      "categoryId": 1,
       "productImageUrl": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-8-4.jpg",
-      "categoryName": "Mobile"
+      "categoryName": "Mobile",
+      "rating": 4
     },
     {
+      "id": 2,
       "productId": 2,
       "productSku": "SAMSUNG",
       "productName": "Samsung Galaxy S23 Ultra",
@@ -25,11 +25,12 @@
       "productDescription": "This is Samsung Product",
       "createdDate": "2024-05-24T14:22:57.913",
       "deliveryTimeSpan": "1 day",
-      "categoryId": 1,
       "productImageUrl": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-ultra-5g-1.jpg",
-      "categoryName": "Mobile"
+      "categoryName": "Mobile",
+      "rating": 4.5
     },
     {
+      "id": 3,
       "productId": 3,
       "productSku": "ASUS",
       "productName": "Asus ROG 8 Pro",
@@ -38,9 +39,37 @@
       "productDescription": "This is Asus product",
       "createdDate": "2024-05-24T15:05:01.34",
       "deliveryTimeSpan": "2 days",
-      "categoryId": 1,
       "productImageUrl": "https://hothardware.com/ContentImages/Article/2805/content/small_asus_rog_phone_stock.jpg",
-      "categoryName": "Mobile"
+      "categoryName": "Mobile",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "productId": 4,
+      "productSku": "REDMAGIC",
+      "productName": "Redmagic 9 pro 5G",
+      "productPrice": 80000,
+      "productShortName": "RM8",
+      "productDescription": "This is a Redmagic product",
+      "createdDate": "2024-06-01",
+      "deliveryTimeSpan": "1 day",
+      "productImageUrl": "https://www.giztop.com/media/catalog/product/cache/dc206057cdd42d7e34b9d36e347785ca/r/e/red_magic_9_pro_01_3.jpg",
+      "categoryName": "Mobile",
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "productId": 5,
+      "productSku": "IPAD AIR",
+      "productName": "IPad Air ",
+      "productPrice": 59000,
+      "productShortName": "IPA",
+      "productDescription": "This is an apple product",
+      "createdDate": "2024-06-01",
+      "deliveryTimeSpan": "2 days",
+      "productImageUrl": "https://images-cdn.ubuy.co.in/65ec3edfc866786ec21dcd94-2022-apple-10-9-inch-ipad-air-wi-fi-64gb.jpg",
+      "categoryName": "Tablet",
+      "rating": 3
     }
   ]
 }

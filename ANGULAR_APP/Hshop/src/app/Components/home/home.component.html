@@ -1,28 +1,40 @@
 <div class="container mt-4">
-    <div *ngIf="loading" class="text-center">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+  <div class="mb-3">
+    <label for="categorySelect" class="form-label"><strong>Filter by Category:</strong></label>
+    <select id="categorySelect" class="form-select" [(ngModel)]="selectedCategory" (change)="filterProductsByCategory()">
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
-    <div *ngIf="error" class="alert alert-danger" role="alert">
-      {{ error }}
-    </div>
-    <div class="row" *ngIf="!loading && !error && products.length > 0">
-      <div class="col-md-4" *ngFor="let product of products">
-        <div class="card mb-4">
-          <img class="card-img-top" style="height: 200px; width: fit-content;" [src]="product.productImageUrl" alt="{{ product.productName }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.productName }}</h5>
-            <p class="card-text">{{ product.productDescription }}</p>
-            <p class="card-text"><strong>Price:</strong> {{ product.productPrice | currency }}</p>
-            <p class="card-text"><strong>Delivery Time:</strong> {{ product.deliveryTimeSpan }}</p>
-            <a href="#" class="btn btn-primary">Add to cart</a>
-          </div>
+  </div>
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+  <div class="row" *ngIf="!loading && !error && filteredProducts.length > 0">
+    <div class="col-md-4" *ngFor="let product of filteredProducts">
+      <div class="card mb-4">
+        <img class="card-img-top" style="height: 200px; width: fit-content;" [src]="product.productImageUrl" alt="{{ product.productName }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.productName }}</h5>
+          <p class="card-text">{{ product.productDescription }}</p>
+          <p class="card-text"><strong>Price:</strong> {{ product.productPrice | currency }}</p>
+          <p class="card-text"><strong>Rating:</strong>
+            <span *ngFor="let star of getStars(product.rating)">
+              <i class="fa" [ngClass]="star"></i>
+            </span>
+          </p>
+          <p class="card-text"><strong>Delivery Time:</strong> {{ product.deliveryTimeSpan }}</p>
+          <a href="#" class="btn btn-primary">Add to cart</a>
         </div>
       </div>
     </div>
-    <div *ngIf="!loading && !error && products.length === 0" class="alert alert-warning" role="alert">
-      No products available.
-    </div>
   </div>
-  
+  <div *ngIf="!loading && !error && filteredProducts.length === 0" class="alert alert-warning" role="alert">
+    No products available.
+  </div>
+</div>
