@@ -52,11 +52,9 @@ export class HomeComponent implements OnInit {
     const stars = []
     for(let i=1; i<=5; i++){
       if(i<= rating){
-        stars.push('fa fa-star text-warning');
-      }else if(i == Math.ceil(rating) && !Number.isInteger(rating)){
-        stars.push('fa fa-star-half-alt text waring');
+        stars.push('fa-solid fa-star text-warning');
       }else{
-        stars.push('fa fa-star-o text-warning')
+        stars.push('fa-solid fa-star-o text-warning')
       }
     }
     return stars
