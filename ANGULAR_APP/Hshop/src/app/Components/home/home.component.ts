@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../Services/product.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Product } from '../../Models/product.model';
+import { CartService } from '../../Services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
   loading: boolean = true;
   error: string = '';
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -58,5 +60,9 @@ export class HomeComponent implements OnInit {
       }
     }
     return stars
+  }
+  addToCart(product: Product){
+    this.cartService.addToCart(product);
+    alert(`${product.productName} has been added to the cart`)
   }
 }

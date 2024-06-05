@@ -29,7 +29,7 @@
             </span>
           </p>
           <p class="card-text"><strong>Delivery Time:</strong> {{ product.deliveryTimeSpan }}</p>
-          <a href="#" class="btn btn-primary">Add to cart</a>
+          <a (click)="addToCart(product)" class="btn btn-primary">Add to cart</a>
         </div>
       </div>
     </div>
