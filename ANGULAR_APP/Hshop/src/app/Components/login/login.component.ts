@@ -1,12 +1,54 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthService } from '../../Services/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,FormsModule ,ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
+  form: FormGroup;
+  isFormSubmitted: boolean = false;
+
+  constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
+    this.form = new FormGroup({
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [Validators.required, Validators.minLength(8)])
+    });
+  }
+
+  onSubmit(): void {
+    this.isFormSubmitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    const loginData = this.form.value;
+    this.authService.validateUser(loginData.email, loginData.password).subscribe(
+      (response) => {
+        if (response) {
+          alert("Login Successful");
+          console.log("User logged in successfully: ", response);
+          this.router.navigate(['cart']).then(() => {
+            console.log("Navigation successful");
+          });
+          this.form.reset();
+        } else {
+          alert("Invalid email or password");
+        }
+      },
+      (error) => {
+        console.error("Error logging in: ", error);
+        alert("Error during login");
+      }
+    );
+  }
 }

@@ -1,5 +1,20 @@
 {
-  "users": [],
+  "users": [
+    {
+      "fullname": "Hubert Veyannie.V",
+      "email": "hubert.v2020ece@sece.ac.in",
+      "password": "TestCase",
+      "contact": "8056885772",
+      "id": 1
+    },
+    {
+      "fullname": "Dharshan",
+      "email": "dharshan.s@gmail.com",
+      "password": "Someone1",
+      "contact": "9655608030",
+      "id": 2
+    }
+  ],
   "products": [
     {
       "id": 1,

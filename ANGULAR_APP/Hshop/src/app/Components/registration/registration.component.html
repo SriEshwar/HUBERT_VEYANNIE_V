@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Register</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="fullname">Full Name:</label>
+                            <input type="text" class="form-control" id="fullname" formControlName="fullname"
+                                placeholder="Enter your Full Name">
+                            <div *ngIf="form.controls['fullname'].invalid && (form.controls['fullname'].touched || form.controls['fullname'].dirty || isFormSubmitted)"
+                                class="text-danger">
+                                <span *ngIf="form.controls['fullname'].errors?.['required']">Full Name is
+                                    required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" formControlName="email"
+                                placeholder="Enter Email">
+                            <div *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty || isFormSubmitted)"
+                                class="text-danger">
+                                <span *ngIf="form.controls['email'].errors?.['required']">Email is required</span>
+                                <span *ngIf="form.controls['email'].errors?.['email']">Email is invalid</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <div class="input-group">
+                                <input [type]="hide ? 'password' : 'text'" class="form-control" id="password"
+                                    formControlName="password" placeholder="Enter Password">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        (click)="hide = !hide">{{hide ? 'Show' : 'Hide'}}</button>
+                                </div>
+                            </div>
+                            <div *ngIf="form.controls['password'].invalid && (form.controls['password'].touched || form.controls['password'].dirty || isFormSubmitted)"
+                                class="text-danger">
+                                <span *ngIf="form.controls['password'].errors?.['required']">Password is required</span>
+                                <span *ngIf="form.controls['password'].errors?.['minlength']">Password must be at least
+                                    8 characters</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Contact:</label>
+                            <input type="tel" class="form-control" id="mobile" formControlName="contact"
+                                placeholder="Enter Phone Number">
+                            <div *ngIf="form.controls['contact'].invalid && (form.controls['contact'].touched || form.controls['contact'].dirty || isFormSubmitted)"
+                                class="text-danger">
+                                <span *ngIf="form.controls['contact'].errors?.['required']">Contact is required</span>
+                                <span
+                                    *ngIf="form.controls['contact'].errors?.['maxlength'] || form.controls['contact'].errors?.['minlength']">Invalid
+                                    Contact</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
