@@ -2,14 +2,17 @@ import Home from './Components/Home'
 import Contactus from './Components/Contactus';
 import Products from './Components/Products';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-// import './App.css';
+import UpdatingDemo from './UpdatingDemo';
+import Hook from './Hook';
+import './App.css';
+import { Login } from './login';
 
 
 function App() {
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      <BrowserRouter>
+      {/* <BrowserRouter>
       <ul>
         <li><Link to='/'>Homme</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
@@ -20,7 +23,10 @@ function App() {
         <Route path='/contact' element={<Contactus />}></Route>
         <Route path='/products' element={<Products />}></Route>
       </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      {/* <UpdatingDemo /> */}
+      {/* <Hook /> */}
+      <Login />
     </div>
   );
 }
