@@ -32,7 +32,7 @@ export class LoginComponent {
     }
 
     const loginData = this.form.value;
-    this.authService.validateUser(loginData.email, loginData.password).subscribe(
+    this.authService.login(loginData.email, loginData.password).subscribe(
       (response) => {
         if (response) {
           alert("Login Successful");
@@ -50,5 +50,13 @@ export class LoginComponent {
         alert("Error during login");
       }
     );
+  }
+
+  get email() {
+    return this.form.get('email');
+  }
+
+  get password() {
+    return this.form.get('password');
   }
 }

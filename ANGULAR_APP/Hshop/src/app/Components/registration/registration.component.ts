@@ -39,7 +39,7 @@ export class RegistrationComponent {
     }
 
     const userData = this.form.value;
-    this.authService.checkUserExiste(userData.email).subscribe(userExists => {
+    this.authService.checkUserExists(userData.email).subscribe(userExists => {
       if(userExists){
         alert("User already exists")
       }else{
