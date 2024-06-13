@@ -24,15 +24,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchProducts();
-    this.filterProductsByCategory();
-  }
-
-
-  fetchProducts(){
-    this.productService.getProducts().subscribe(
-      data => {
-        this.products = data;
-        this.loading = false;
+    }
+    
+    
+    fetchProducts(){
+      this.productService.getProducts().subscribe(
+        data => {
+          this.products = data;
+          this.loading = false;
+          this.filterProductsByCategory();
       },
       error => {
         this.error = 'Error fetching products';

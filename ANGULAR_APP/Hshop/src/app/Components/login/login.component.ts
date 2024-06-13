@@ -37,7 +37,7 @@ export class LoginComponent {
         if (response) {
           alert("Login Successful");
           console.log("User logged in successfully: ", response);
-          this.router.navigate(['cart']).then(() => {
+          this.router.navigate(['']).then(() => {
             console.log("Navigation successful");
           });
           this.form.reset();
