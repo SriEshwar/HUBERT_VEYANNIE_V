@@ -6,6 +6,7 @@ import UpdatingDemo from './UpdatingDemo';
 import Hook from './Hook';
 import './App.css';
 import { Login } from './login';
+import { ControlForm } from './ControlForm';
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
       </BrowserRouter> */}
       {/* <UpdatingDemo /> */}
       {/* <Hook /> */}
-      <Login />
+      {/* <Login /> */}
+      <ControlForm />
     </div>
   );
 }
