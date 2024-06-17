@@ -19,7 +19,7 @@
             </li>
             <ng-container *ngIf="currentUser">
                 <li class="nav-item d-flex align-items-center">
-                    <span class="navbar-text px-3">{{ currentUser.fullname }}</span>
+                    <a class="nav-link px-3" routerLink="/profile">{{ currentUser.fullname }}</a>
                     <button class="btn btn-danger btn-block " (click)="logout()">Logout</button>
                 </li>
             </ng-container>

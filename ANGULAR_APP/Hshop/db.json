@@ -13,6 +13,13 @@
       "password": "Someone1",
       "contact": "9655608030",
       "id": 2
+    },
+    {
+      "fullname": "Hubey",
+      "email": "hubertveyannie07@gmail.com",
+      "password": "TestCase2",
+      "contact": "8056885772",
+      "id": 3
     }
   ],
   "products": [

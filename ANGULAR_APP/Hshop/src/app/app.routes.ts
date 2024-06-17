@@ -6,6 +6,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { AuthGuard } from './Guard/auth.guard';
 
 export const routes: Routes = [
     {path:"", component:HomeComponent},
@@ -14,5 +16,6 @@ export const routes: Routes = [
     {path:"navbar", component:NavbarComponent},
     {path:"admin", component:AdminComponent},
     {path:"login", component:LoginComponent},
-    {path:"registration", component:RegistrationComponent}
+    {path:"registration", component:RegistrationComponent},
+    {path:"profile", component:UserProfileComponent, canActivate: [AuthGuard]}
 ];
