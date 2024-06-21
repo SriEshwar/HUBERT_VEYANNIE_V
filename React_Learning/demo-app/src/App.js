@@ -7,9 +7,15 @@ import Hook from './Hook';
 import './App.css';
 import { Login } from './login';
 import { ControlForm } from './ControlForm';
+import FunctionalProps from './Props/FunctionalProps';
+import ClassProps from './Props/ClassProps';
 
 
 function App() {
+  
+  const carInfo = {brand: 'Ferrari', color: 'Black'} //For props in Functional component
+  const appleData = {type: 'Fuji', size: 'Large'}
+
   return (
     <div className="App">
       <h1>Hello World!</h1>
@@ -28,7 +34,9 @@ function App() {
       {/* <UpdatingDemo /> */}
       {/* <Hook /> */}
       {/* <Login /> */}
-      <ControlForm />
+      {/* <ControlForm /> */}
+      <FunctionalProps Something={carInfo} />
+      <ClassProps Data={appleData}/>
     </div>
   );
 }
