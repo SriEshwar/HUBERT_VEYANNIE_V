@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../Models/product.model';
 import { CartService } from '../../Services/cart.service';
+import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
   loading: boolean = true;
   error: string = '';
 
-  constructor(private productService: ProductService, private cartService: CartService) { }
+  constructor(private productService: ProductService, private cartService: CartService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -61,8 +63,13 @@ export class HomeComponent implements OnInit {
     }
     return stars
   }
-  addToCart(product: Product){
-    this.cartService.addToCart(product);
-    alert(`${product.productName} has been added to the cart`)
+  addToCart(product: Product) {
+    if (this.authService.currentUserValue) { 
+      this.cartService.addToCart(product);
+      alert(`${product.productName} has been added to the cart`);
+    } else {
+      alert('Please log in to add products to the cart');
+      this.router.navigate(['/login']); 
+    }
   }
 }
