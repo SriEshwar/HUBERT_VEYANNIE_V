@@ -16,7 +16,7 @@ export default class UpdatingDemo extends Component {
 
   render() {
     return (
-      <div>UpdatingDemo
+      <div>
         <h2>Welcoming {this.state.name}</h2>
         <button onClick={(event)=>this.ChangeName(event)}>Update Name</button>
       </div>

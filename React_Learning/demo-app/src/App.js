@@ -2,13 +2,14 @@ import Home from './Components/Home'
 import Contactus from './Components/Contactus';
 import Products from './Components/Products';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import UpdatingDemo from './UpdatingDemo';
+import UpdatingDemo from './State/UpdatingDemo';
 import Hook from './Hook';
 import './App.css';
 import { Login } from './login';
 import { ControlForm } from './ControlForm';
 import FunctionalProps from './Props/FunctionalProps';
 import ClassProps from './Props/ClassProps';
+import DemoState from './State/DemoState'
 
 
 function App() {
@@ -31,12 +32,13 @@ function App() {
         <Route path='/products' element={<Products />}></Route>
       </Routes>
       </BrowserRouter> */}
-      {/* <UpdatingDemo /> */}
       {/* <Hook /> */}
       {/* <Login /> */}
       {/* <ControlForm /> */}
-      <FunctionalProps Something={carInfo} />
-      <ClassProps Data={appleData}/>
+      {/* <FunctionalProps Something={carInfo} /> */}
+      {/* <ClassProps Data={appleData}/> */}
+      <DemoState />
+      <UpdatingDemo />
     </div>
   );
 }
