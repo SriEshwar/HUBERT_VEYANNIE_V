@@ -8,6 +8,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { AuthGuard } from './Guard/auth.guard';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 
 export const routes: Routes = [
     {path:"", component:HomeComponent},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     {path:"admin", component:AdminComponent},
     {path:"login", component:LoginComponent},
     {path:"registration", component:RegistrationComponent},
-    {path:"profile", component:UserProfileComponent, canActivate: [AuthGuard]}
+    {path:"profile", component:UserProfileComponent, canActivate: [AuthGuard]},
+    { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] }
 ];

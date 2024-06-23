@@ -41,4 +41,11 @@ export class CartService {
   getTotalPrice(): number {
     return this.items.reduce((total, item) => total + item.product.productPrice * item.quantity, 0);
   }
+
+  checkout(): boolean {
+    // For now, we simply clear the cart and log a message
+    this.clearCart();
+    console.log('Checkout successful');
+    return true;
+  }
 }

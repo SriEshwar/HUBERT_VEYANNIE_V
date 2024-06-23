@@ -3,18 +3,19 @@ import { Product } from '../../Models/product.model';
 import { CartService } from '../../Services/cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
   cartItems: { product: Product, quantity: number }[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
@@ -43,7 +44,7 @@ export class CartComponent implements OnInit {
     this.cartItems = [];
   }
 
-  checkout(){
-    alert('checkout')
+  checkout() {
+    this.router.navigate(['/checkout']);
   }
 }

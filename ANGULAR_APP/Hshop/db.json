@@ -5,6 +5,7 @@
       "email": "hubert.v2020ece@sece.ac.in",
       "password": "TestCase",
       "contact": "8056885772",
+      "address": "",
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "email": "dharshan.s@gmail.com",
       "password": "Someone1",
       "contact": "9655608030",
+      "address": "",
       "id": 2
     },
     {
@@ -19,6 +21,7 @@
       "email": "hubertveyannie07@gmail.com",
       "password": "TestCase2",
       "contact": "8056885772",
+      "address": "",
       "id": 3
     }
   ],
