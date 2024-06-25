@@ -9,6 +9,7 @@ import { RegistrationComponent } from './Components/registration/registration.co
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 export const routes: Routes = [
     {path:"", component:HomeComponent},
@@ -19,5 +20,7 @@ export const routes: Routes = [
     {path:"login", component:LoginComponent},
     {path:"registration", component:RegistrationComponent},
     {path:"profile", component:UserProfileComponent, canActivate: [AuthGuard]},
-    { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] }
+    { path:"payment", component: PaymentComponent },
+    { path: '', redirectTo: '/checkout', pathMatch: 'full' },
+    { path:"checkout", component: CheckoutComponent, canActivate: [AuthGuard] }
 ];
