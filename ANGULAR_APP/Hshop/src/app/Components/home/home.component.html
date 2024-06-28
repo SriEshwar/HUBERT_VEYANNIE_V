@@ -22,7 +22,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ product.productName }}</h5>
           <p class="card-text">{{ product.productDescription }}</p>
-          <p class="card-text"><strong>Price:</strong> {{ product.productPrice | currency }}</p>
+          <p class="card-text"><strong>Price:</strong> {{ product.productPrice | currency:'INR' }}</p>
           <p class="card-text"><strong>Rating:</strong>
             <span *ngFor="let star of getStars(product.rating)">
               <i class="fa" [ngClass]="star"></i>

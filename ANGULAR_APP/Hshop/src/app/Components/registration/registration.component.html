@@ -13,8 +13,7 @@
                                 placeholder="Enter your Full Name">
                             <div *ngIf="form.controls['fullname'].invalid && (form.controls['fullname'].touched || form.controls['fullname'].dirty || isFormSubmitted)"
                                 class="text-danger">
-                                <span *ngIf="form.controls['fullname'].errors?.['required']">Full Name is
-                                    required</span>
+                                <span *ngIf="form.controls['fullname'].errors?.['required']">Full Name is required</span>
                             </div>
                         </div>
                         <div class="form-group">

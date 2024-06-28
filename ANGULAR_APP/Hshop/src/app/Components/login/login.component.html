@@ -16,7 +16,13 @@
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" formControlName="password" />
+              <div class="input-group">
+                <input [type]="hide ? 'password' : 'text'" class="form-control" id="password" formControlName="password" />
+                <div class="input-group-append ml-3">
+                  <button class="btn btn-outline-secondary" type="button" (click)="hide = !hide">{{hide ? 'Show' :
+                    'Hide'}}</button>
+                </div>
+              </div>
               <div *ngIf="isFormSubmitted && form.controls['password'].invalid" class="text-danger">
                 Password is required and must be at least 8 characters.
               </div>

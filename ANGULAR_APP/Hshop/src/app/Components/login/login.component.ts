@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
+  hide = true
   form: FormGroup;
   isFormSubmitted: boolean = false;
 

@@ -23,6 +23,13 @@
       "contact": "8056885772",
       "address": "",
       "id": 3
+    },
+    {
+      "fullname": "Santhosh M",
+      "email": "sandy@gmail.com",
+      "password": "TestCase3",
+      "contact": "6385680085",
+      "id": 4
     }
   ],
   "products": [

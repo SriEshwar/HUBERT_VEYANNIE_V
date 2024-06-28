@@ -20,10 +20,6 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private cartService: CartService, private router: Router, private fb: FormBuilder) {
     this.checkoutForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
