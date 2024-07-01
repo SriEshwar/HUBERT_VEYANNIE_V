@@ -10,6 +10,7 @@ import { ControlForm } from './ControlForm';
 import FunctionalProps from './Props/FunctionalProps';
 import ClassProps from './Props/ClassProps';
 import DemoState from './State/DemoState'
+import ConditionalRendering from './Components/ConditionalRendering';
 
 
 function App() {
@@ -37,8 +38,9 @@ function App() {
       {/* <ControlForm /> */}
       {/* <FunctionalProps Something={carInfo} /> */}
       {/* <ClassProps Data={appleData}/> */}
-      <DemoState />
-      <UpdatingDemo />
+      {/* <DemoState /> */}
+      {/* <UpdatingDemo /> */}
+      <ConditionalRendering />
     </div>
   );
 }
