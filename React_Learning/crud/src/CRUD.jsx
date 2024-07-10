@@ -18,19 +18,38 @@ const Users = () => {
 
     fetchUsers();
   }, []);
-
   return (
-    <div>
-      <h2>Users</h2>
-      {error && <p>{error}</p>}
-      <ul>
-        {users.map(user => (
-          <li key={user._id}>
-            <strong>{user.name}</strong> ({user.website}) - {user.email}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <div className="container p-1">
+  <h2 className="text-center">Users</h2>
+  {error && <p className="text-center text-danger">{error}</p>}
+  <div className="table-responsive">
+    <table className="table table-bordered table-hover table-centered">
+      <thead className="thead-dark text-center">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Website</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody className="text-center">
+        {users.map(user => 
+          <tr key={user.id}>
+            <td>{user.id}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.website}</td>
+            <td>
+              <button className="btn btn-primary mx-1">Update</button>
+              <button className="btn btn-danger mx-1">Delete</button>
+            </td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  </div>
+</div>
   );
 };
 
