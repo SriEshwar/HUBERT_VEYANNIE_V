@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../Auth/AuthContext';
 
-export default function Cart({ cartItems, setCartItems }) {
+export default function Cart() {
+    const { cartItems, setCartItems } = useContext(AuthContext); // Use AuthContext
     const [complete, setComplete] = useState(false);
 
     function increaseQty(item) {
@@ -48,7 +50,7 @@ export default function Cart({ cartItems, setCartItems }) {
 
     return (
         <div className="flex-grow-1">
-            {cartItems.length > 0 ? (
+            {cartItems && cartItems.length > 0 ? (
                 <Fragment>
                     <div className="container container-fluid">
                         <h2 className="mt-5">Your Cart: <b>{cartItems.length} items</b></h2>
@@ -56,9 +58,9 @@ export default function Cart({ cartItems, setCartItems }) {
                         <div className="row d-flex justify-content-between">
                             <div className="col-12 col-lg-8">
                                 {cartItems.map((item) => (
-                                    <Fragment key={item._id}>
+                                    <Fragment key={item.product._id}>
                                         <hr />
-                                        <div className="cart-item" >
+                                        <div className="cart-item">
                                             <div className="row">
                                                 <div className="col-4 col-lg-3">
                                                     <img
